@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JobBoard</title>
+    <link rel="stylesheet" href="index.css">
+</head>
+<body>
+    <section class="bg">
+        <header>
+            <div class="logo-container">
+                JobPLS
+            </div>
+            <div class="nav-infos">
+                <nav>
+                    <ul>
+                        <li><a href="index-profil-candidat.html" class="image-text">Votre profil</a></li>
+                        <li><a href="index-créa-annonce.html" class="image-text">Poster une offre</a></li>
+                    </ul>
+                </nav>
+            </div>
+            <div class="header-right">
+                <button id="loginLogoutButton">Se connecter</button>
+            </div>
+        </header>
+        <div class="center-container">
+            <div class="content">
+                <section class="search">
+                    <div class="main-title">
+                        <h1>Trouvez un job pour sortir de la PLS</h1>
+                    </div>
+                </section>
+            </div>
+            <div class="content-links">
+                <nav>
+                    <ul>
+                        <li><a href="index-créa-entreprise.html" class="profile-entreprise-link image-text">Créez votre profil entreprise</a></li>
+                        <li><a href="index-profil-entreprise.html" class="image-text">Votre profil entreprise</a></li>
+                        <li><a href="index-créa-annonce.html" class="image-text">Créer une annonce</a></li>
+                        <li><a href="index-annonce-change.html" class="image-text">Voir votre annonce</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </section>
+    <section class="all-advertisements">
+        <div class="job-board"></div>
+    </section>
+
+    <footer>
+        <div class="wrapper">
+            <h1>JobPLS</h1>
+            <div class="Copyright">
+                Copyright © 2023. Tous droits réservés (lol).
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"> </script>
+
+    <script>
+        
+    document.addEventListener('DOMContentLoaded', function() {
+    const token = localStorage.getItem('token');
+    const button = document.getElementById('loginLogoutButton');
+        if (!token) {
+            button.textContent = "Se connecter";
+        } else {
+            button.textContent = "Se déconnecter";
+        }
+    }); 
+
+    document.getElementById('loginLogoutButton').addEventListener('click', function() {
+        const token = localStorage.getItem('token');
+        if (!token) {
+            window.location.href = "index-connexion.html";
+        } else {
+            logout();
+        }
+    });
+
+    async function getAllAdvertisements() {
+            try {
+                let response = await fetch('http://127.0.0.1:8000/api/advertisements/all', {
+                    method: 'GET'
+                });
+
+                let advertisements = await response.json();
+
+                let adContainer = document.querySelector('.job-board');
+                adContainer.innerHTML = '';
+
+                advertisements.forEach(ad => {
+                    adContainer.innerHTML += `
+                        <div class="job-ad">
+                            <h2>${ad.job_title}</h2>
+                            <p>${ad.job_description}</p>
+                            <button class="learn-more" onclick="toggleDetails(this)">En savoir plus</button>
+                            <div class="job-details" hidden>
+                                <p>Salaire : ${ad.salary}</p>
+                                <p>Type de contrat : ${ad.contract_type}</p>
+                                <p>Niveau d'étude : ${ad.study_level}</p>
+                                <p>Localisation : ${ad.localisation}</p>
+                                <p>Date de publication : ${ad.date_posted}</p>
+                            </div>
+                        </div>
+                    `;
+                });
+
+            } catch (error) {
+                console.error('Erreur:', error);
+                alert("Une erreur s'est produite lors de la récupération des annonces.");
+            }   
+        }
+
+    function toggleDetails(buttonElement) {
+        let detailsDiv = buttonElement.nextElementSibling;
+        detailsDiv.hidden = !detailsDiv.hidden;
+    }
+
+    
+    window.onload = getAllAdvertisements;
+    </script>
+</body>
+</html>

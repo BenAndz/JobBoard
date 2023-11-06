@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="index-crea-annonce.css">
+    <title>Créez votre annonce</title>
+</head>
+<body>
+    <div>
+        <form id="advertisement-create">
+            <h2>Créez votre annonce</h2>
+            
+            <label for="job_title">Intitulé du poste :</label>
+            <input type="text" id="job_title" name="job_title" required><br><br>
+            
+            <label for="localisation">Localisation :</label>
+            <input type="text" id="localisation" name="localisation" required><br><br>
+            
+            <label for="study_level">Niveau d'étude :</label>
+            <select id="study_level" name="study_level" required>
+                <option value="CAP">CAP</option>
+                <option value="BEP">BEP</option>
+                <option value="Bac">Bac</option>
+                <option value="Bac+2">Bac+2</option>
+                <option value="Bac+3">Bac+3</option>
+                <option value="Bac+5">Bac+5</option>
+                <option value="Bac+8">Bac+8</option>
+            </select><br><br>
+            
+            <label for="salary">Salaire :</label>
+            <input type="text" id="salary" name="salary" required><br><br>
+            
+            <label for="contract_type">Type de contrat :</label>
+            <select id="contract_type" name="contract_type" required>
+                <option value="CDI">CDI</option>
+                <option value="CDD">CDD</option>
+                <option value="Stage">Stage</option>
+                <option value="Alternance">Alternance</option>
+            </select><br><br>
+            
+            <label for="job_description">Description du poste :</label>
+            <textarea id="job_description" name="job_description" required></textarea><br><br>
+            
+            <label for="date_posted">Date de publication :</label>
+            <input type="date" id="date_posted" name="date_posted" required><br><br>
+
+            <button type="button" onclick="postAdvertisement()">Envoyer</button>
+        </form>
+        <a href="index.html" class="redirect">Retourner à l'accueil</a>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

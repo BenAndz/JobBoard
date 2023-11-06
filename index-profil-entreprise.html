@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profil de votre entreprise</title>
+    <link rel="stylesheet" href="index-profil-entreprise.css">
+</head>
+<body>
+    <div id="company-profile">
+        <h1 id="company-name">Nom de l'entreprise : </h1>
+        <p id="company-website">Site web : </p>
+        <p id="company-address">Adresse : </p>
+    </div>
+    <div class="change-company">
+        <form id="company-change">
+            <h2>Modifiez votre profil</h2>
+            <label for="company_name_change">Nom de l'entreprise :</label>
+            <input type="text" id="company_name_change" name="company_name_change" required><br><br>
+            
+            <label for="company_website_change">Site internet de l'entreprise :</label>
+            <input type="text" id="company_website_change" name="company_website_change"><br><br>
+            
+            <label for="company_address_change">Adresse de l'entreprise :</label>
+            <input type="text" id="company_address_change" name="company_address_change"><br><br>
+            
+            <button type="button" onclick="updateCompanyProfile()">Modifier</button>
+        </form>
+
+    </div>
+    <div class="delete-company">
+        <h2>Supprimez votre profil</h2>
+        <button type="button" onclick="deleteCompanyProfile()">Supprimer</button>
+    </div>
+    <a href="index.html" class="redirect">Retourner à l'accueil</a>
+
+    <script src="script.js"></script>
+    <script>
+        window.onload = fetchCompanyProfile();
+    </script>
+</body>
+</html>

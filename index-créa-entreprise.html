@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Créez votre profil entreprise</title>
+    <link rel="stylesheet" href="index-crea-entreprise.css">
+</head>
+<body>
+
+    <form id="company-form">
+        <label for="company_name">Nom de l'entreprise :</label>
+        <input type="text" id="company_name" name="company_name" required><br><br>
+        
+        <label for="company_website">Site internet de l'entreprise :</label>
+        <input type="text" id="company_website" name="company_website"><br><br>
+        
+        <label for="company_address">Adresse de l'entreprise :</label>
+        <input type="text" id="company_address" name="company_address"><br><br>
+        
+        <button type="button" onclick="postCompany()">Envoyer</button>
+    </form>
+
+    <a href="index-profil-entreprise.html">Voir le profil de votre entreprise</a>
+
+    <script src="script.js"></script>
+</body>
+</html>

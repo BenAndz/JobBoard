@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Création du profil</title>
+    <link rel="stylesheet" href="index-crea-profil.css">
+</head>
+<body>
+    <form id="register-user">
+        <label for="first-name">Prénom</label>
+        <input type="text" id="first-name" name="first_name" required> <br><br>
+
+        <label for="last-name">Nom</label>
+        <input type="text" id="last-name" name="last_name" required> <br><br>
+
+        <label for="email">Email</label>
+        <input type="email" id="email" name="email" required> <br><br>
+
+        <label for="password">Mot de passe</label>
+        <input type="password" id="password" name="password" required> <br><br>
+
+        <label for="password-second">Veuillez retaper votre mot de passe</label>
+        <input type="password" id="password-second" name="password-second" required> <br><br>
+
+        <label for="telephone">Numéro de téléphone</label>
+        <input type="tel" id="telephone" name="phone" required> <br><br>
+
+        <label for="profil">Profil</label>
+        <select id="profil" name="role" required>
+            <option value="Candidat">Candidat</option>
+            <option value="Recruteur">Recruteur</option>
+        </select> <br><br>
+
+        <button type="button" onclick="registerUser()">S'inscrire</button>
+    </form>
+    <br>
+    <a href="index-connexion.html">Lien pour vous connecter</a>
+
+    <script src="script.js"></script>
+</body>
+</html>

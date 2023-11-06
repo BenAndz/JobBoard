@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="index-annonce-change.css">
+    <title>Profil de votre annonce</title>
+</head>
+<body>
+    <br>
+    <button type="button" onclick="getLastAdvertisement()">Voir ma dernière annonce</button>
+    <br>
+    <div id="ad-container"></div>
+    <div class="change-advertisement">
+        <form id="advertisement-change">
+            <h2>Modifiez votre annonce</h2>
+            
+            <label for="job_title_change">Intitulé du poste :</label>
+            <input type="text" id="job_title_change" name="job_title_change" required><br><br>
+            
+            <label for="localisation_change">Localisation :</label>
+            <input type="text" id="localisation_change" name="localisation_change" required><br><br>
+            
+            <label for="study_level_change">Niveau d'étude :</label>
+            <select id="study_level_change" name="study_level_change" required>
+                <option value="CAP">CAP</option>
+                <option value="BEP">BEP</option>
+                <option value="Bac">Bac</option>
+                <option value="Bac+2">Bac+2</option>
+                <option value="Bac+3">Bac+3</option>
+                <option value="Bac+5">Bac+5</option>
+                <option value="Bac+8">Bac+8</option>
+            </select><br><br>
+            
+            <label for="salary_change">Salaire :</label>
+            <input type="text" id="salary_change" name="salary_change" required><br><br>
+            
+            <label for="contract_type_change">Type de contrat :</label>
+            <select id="contract_type_change" name="contract_type_change" required>
+                <option value="CDI">CDI</option>
+                <option value="CDD">CDD</option>
+                <option value="Stage">Stage</option>
+                <option value="Alternance">Alternance</option>
+            </select><br><br>
+            
+            <label for="job_description_change">Description du poste :</label>
+            <textarea id="job_description_change" name="job_description_change" required></textarea><br><br>
+            
+            <label for="date_posted_change">Date de publication :</label>
+            <input type="date" id="date_posted_change" name="date_posted_change" required><br><br>
+            
+            <button type="button" onclick="modifyAdvertisement()">Modifier</button>
+        </form>
+    </div>
+    <div class="delete-advertisement">
+        <h2>Supprimez votre annonce</h2>
+        <button type="button" onclick="deleteAdvertisement()">Supprimer</button>
+    </div>
+
+
+    <script src="script.js"></script>
+</body>
+</html>

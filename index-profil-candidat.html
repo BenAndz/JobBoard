@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="index-profil-candidat.css">
+    <title>Profil du candidat</title>
+</head>
+<body>
+    <div id="candidate-profile">
+        <h1 id="candidate-first-name">Votre prénom : </h1>
+        <h1 id="candidate-last-name">Votre nom : </h1>
+        <p id="candidate-email">Email : </p>
+        <p id="candidate-phone">Téléphone : </p>
+    </div>
+    <div class="change-company">
+        <form id="company-change">
+            <h2>Modifiez votre profil</h2>
+            <label for="first-name-change">Votre prénom :</label>
+            <input type="text" id="first-name-change" name="first-name-change" required><br><br>
+
+            <label for="last-name-change">Votre nom :</label>
+            <input type="text" id="last-name-change" name="last-name-change" required><br><br>
+            
+            <label for="phone-change">Téléphone :</label>
+            <input type="text" id="phone-change" name="phone-change"><br><br>
+            
+            <button type="button" onclick="changeProfile()">Modifier</button>
+        </form>
+
+    </div>
+    <div class="delete-company">
+        <h2>Supprimez votre profil</h2>
+        <button type="button" onclick="deleteUserProfile()">Supprimer</button>
+    </div>
+    <a href="index.html" class="redirect">Retourner à l'accueil</a>
+
+    <script src="script.js"></script>
+    <script>
+        window.onload = fetchPersonProfile();
+    </script>
+</body>
+</html>

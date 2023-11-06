@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="all-ad.css">
+    <title>Annonces</title>
+</head>
+<body>
+
+<div class="job-board">
+    
+</div>
+
+<script>
+    async function getAllAdvertisements() {
+        try {
+            let response = await fetch('http://127.0.0.1:8000/api/advertisements/all', {
+                method: 'GET'
+            });
+
+            let advertisements = await response.json();
+
+            let adContainer = document.querySelector('.job-board');
+            adContainer.innerHTML = '';
+
+            advertisements.forEach(ad => {
+                adContainer.innerHTML += `
+                    <div class="job-ad">
+                        <h2>${ad.job_title}</h2>
+                        <p>${ad.job_description}</p>
+                        <button class="learn-more" onclick="toggleDetails(this)">Learn More</button>
+                        <div class="job-details" hidden>
+                            <p>Salaire : ${ad.salary}</p>
+                            <p>Type de contrat : ${ad.contract_type}</p>
+                            <p>Niveau d'étude : ${ad.study_level}</p>
+                            <p>Localisation : ${ad.localisation}</p>
+                            <p>Date de publication : ${ad.date_posted}</p>
+                        </div>
+                    </div>
+                `;
+            });
+
+        } catch (error) {
+            console.error('Erreur:', error);
+            alert("Une erreur s'est produite lors de la récupération des annonces.");
+        }   
+    }
+
+    function toggleDetails(buttonElement) {
+        let detailsDiv = buttonElement.nextElementSibling;
+        detailsDiv.hidden = !detailsDiv.hidden;
+    }
+
+    
+    window.onload = getAllAdvertisements;
+</script>
+
+</body>
+</html>
